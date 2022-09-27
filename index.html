@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <title>Juego Ahorcado</title>
+</head>
+<body>
+    <header>
+        <img class="logoAlura" src= "Imagenes/logoAlura.png" alt="logo de Alura">
+    </header>
+    <main>
+        <div class="display-area">
+            <div class = "botones-inicio">
+                <button class = "iniciar-juego" onclick="iniciarjuego()">Iniciar juego</button>
+                <button class = "agregar-palabra" onclick="agregarPalabra()">Agregar nueva palabra</button>
+            </div>
+        </div>
+
+        <div class="display-area2">
+                <textarea class="input-palabra" cols="40" rows="6" placeholder="Ingrese una palabra" maxlength="8"></textarea>
+                <div class="instrucciones-1">
+                    <img class="signoExclamacion" src="Imagenes/signoexclamacion.png" alt="signo de exclamacion">
+                    <p>Max. de 8 letras</p>
+                </div>
+
+                <div class="botones-guardarempezar">
+                    <button class = "guardar-empezar" onclick="guardarEmpezar()">Guardar y empezar</button>
+                    <button class = "cancelar" onclick="cancelar()">Cancelar</button>
+                </div>
+        </div >
+
+        <div class="display-area3">
+
+            <canvas class="canvas" width="600" height="400"></canvas>
+
+            <div class = "letras-correctas">
+            </div>
+
+            <div class= "letras-incorrectas">
+
+            </div>
+
+            <div class="botones-nuevojuego-rendirse">
+                <button class = "nuevo-juego" onclick="cancelar()">Nuevo Juego</button>
+                <button class = "rendirse" onclick="cancelar()">Rendirse</button>
+            </div>
+        </div >
+
+        <div class = "gameover">
+            <img src="Imagenes/game_over.png" alt="logo de game over">
+        </div>
+
+        <div class = "youWin">
+            <img src="Imagenes/winner.png" alt="logo de youWin">
+        </div>
+
+    </main>
+
+<script src="script.js"></script>
+
+</body>
+</html>
