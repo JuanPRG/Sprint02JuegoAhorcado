@@ -278,6 +278,15 @@ canvas {
     background-color:#E9ECF8
 }
 
+#intentos {
+    position: absolute;
+    color: #0A3871;
+    font-style: normal;
+    font-weight: bolder;
+    font-size: 16px;
+    line-height: 19px; 
+}
+
 .letras-correctas {
     display: flex;
     flex-direction: row;

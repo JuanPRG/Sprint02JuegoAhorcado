@@ -8,16 +8,15 @@ const youWin = document.querySelector(".youWin");
 var palabras = ["ALURA", "ORACLE", "ONE", "JAVASCRIPT", "HTML"];
 var palabra = "";
 var tecla = "";
-var acceptedCharacters = /^[A-Z]+$/;
+var acceptedCharacters = /^[A-Z]+$/; // caracteres aceptados en el juego
 var idNumber = -1; //variable necesaria para el contador del id de las cajas creadas
 var idIncorrecto = -1; // contador de cajas incorrectas 
 var letrasIncorrectas = []; // array de letras incorrectas escritas por el usuario
-let counter = 0;
+let counter = 0; // counter para el numero de letras correctas usada en el verificar tecla onclick
 
 const canvas = document.querySelector(".canvas");
 const ctx = canvas.getContext('2d');
 
-const letra1 = document.querySelector(".letra1");
 //--------------------------------------------------------------SCRIPT PARA CANVAS---------------------------------------------------
 
 function beginDraw() {
@@ -97,9 +96,6 @@ function draw() {
 
 
 
-
-
-
 // ---------------------------------------------------------------SCRIPT PARA CAJAS-------------------
 function creacionCajasTextoCorrecto() {
     var tag = document.createElement("textarea");
@@ -112,6 +108,7 @@ function creacionCajasTextoCorrecto() {
     tag.setAttribute("class","cajasCorrectas");
     var element = document.getElementsByClassName("letras-correctas");
     element[0].appendChild(tag);
+
 }
 
 function creacionCajasTextoIncorrecto() {
@@ -141,7 +138,7 @@ function verificarTeclas (event) {
             document.getElementById("incorrecto"+i).value = letrasIncorrectas[i]==undefined?"":letrasIncorrectas[i];
             
         }
-        console.log(letrasIncorrectas.length);
+        // console.log(letrasIncorrectas.length);
         if (letrasIncorrectas.length == 8) {
             window.removeEventListener("keydown", verificarTeclas);
             GameOver.style.display = "flex";
@@ -159,17 +156,18 @@ function verificarTeclas (event) {
                 window.removeEventListener("keydown", verificarTeclas);
 
             }
-            console.log(counter);
-            console.log(palabra.length);
+            // console.log(counter);
+            // console.log(palabra.length);
             
         }
     }
     }
 
+    document.getElementById("intentos").innerHTML = "Numero de intentos = " + letrasIncorrectas.length + "/8";  
+
 
     draw();
-        //lo mismo pero con letras correctas
-    
+
 }
 
 //------------------------------------------**************--------------BOTONES----------------******************------------------
@@ -187,19 +185,18 @@ function validar () {
     }
     return true;
 
-    // if (!/^[A-Z]*$/g.test(document.getElementsByClassName("input-palabra").value)) {
-    //     alert("Invalid characters");
-    //     document.getElementsByClassName("input-palabra")[0].focus();
-    //     return false;
-    // }
+
 }
 
 function iniciarjuego() {
     displayArea1.style.display="none";
     displayArea3.style.display="flex";
+
+    document.getElementById("intentos").innerHTML = "Numero de intentos = 0/8"
+
     palabra = palabras[Math.floor(Math.random() * palabras.length)];
     palabra = palabra.split("")
-    console.log(palabra);
+    // console.log(palabra);
     beginDraw();
     window.addEventListener("keydown", verificarTeclas);
     
@@ -212,29 +209,6 @@ function iniciarjuego() {
         idIncorrecto++;
         creacionCajasTextoIncorrecto();
     }
-    // var counter = 0;
-    // var listener = document.addEventListener('keydown', (event) => {
-    //     const keyName = event.key;
-        
-    //     for (var i = 0; i<palabra.length; i++) {
-    //         if (keyName == palabra[i]) {
-    //             if (document.getElementById(i).value == "") {
-    //                 document.getElementById(i).value = palabra[i];
-    //                 counter++;
-    //             } 
-                
-    //             if (counter == palabra.length ) {
-    //                 youWin.style.display = "flex";
-    //                 document.removeEventListener('keydown', listener);
-    //                 window.removeEventListener("keydown", verificarTeclas);
-
-    //             }
-    //             console.log(counter);
-    //             console.log(palabra.length);
-                
-    //         }
-    //     }
-    //   })
 
 }
 
@@ -257,8 +231,8 @@ function guardarEmpezar() {
 
     palabra = palabras[Math.floor(Math.random() * palabras.length)];
     palabra = palabra.split("")
-    console.log(palabra);
-    console.log(palabras);
+    // console.log(palabra);
+    // console.log(palabras);
     beginDraw();
     window.addEventListener("keydown", verificarTeclas);
 
@@ -271,29 +245,6 @@ function guardarEmpezar() {
         idIncorrecto++;
         creacionCajasTextoIncorrecto();
     }
-
-    // var counter = 0;
-    // var listener = document.addEventListener('keydown', (event) => {
-    //     const keyName = event.key;
-        
-    //     for (var i = 0; i<palabra.length; i++) {
-    //         if (keyName == palabra[i]) {
-    //             if (document.getElementById(i).value == "") {
-    //                 document.getElementById(i).value = palabra[i];
-    //                 counter++;
-    //             } 
-                
-    //             if (counter == palabra.length ) {
-    //                 youWin.style.display = "flex";
-    //                 document.removeEventListener('keydown', listener);
-    //                 window.removeEventListener("keydown", verificarTeclas);
-    //             }
-    //             console.log(counter);
-    //             console.log(palabra.length);
-                
-    //         }
-    //     }
-    //   })
 
 }
 
