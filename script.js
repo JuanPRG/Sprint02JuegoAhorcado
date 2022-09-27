@@ -224,6 +224,8 @@ function guardarEmpezar() {
     }
     displayArea2.style.display="none";
     displayArea3.style.display="flex";
+
+    document.getElementById("intentos").innerHTML = "Numero de intentos = 0/8"
    
 
     var palabraGuardada = inputTexto.value;

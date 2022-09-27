@@ -11,7 +11,6 @@ header {
 }
 
 main {
-    padding: 1em 0 ;
     width: 940px;
     margin: 0 auto;
     height: 720px;
@@ -208,13 +207,10 @@ main {
 }
 
 .botones-nuevojuego-rendirse{
-    align-items: center;
     display: flex;
-    flex-direction:row;
-    position: absolute;
-    justify-content: center;
-    top: 80%;
-    left: calc((100% - 520px)/2);
+    flex-direction: row;
+    position: relative;
+    margin-top: 20px;
 }
 
 .nuevo-juego {
@@ -283,7 +279,7 @@ canvas {
     color: #0A3871;
     font-style: normal;
     font-weight: bolder;
-    font-size: 16px;
+    font-size: 22px;
     line-height: 19px; 
 }
 
@@ -302,9 +298,9 @@ canvas {
     position: relative;
     resize: none;
     text-align: center;
-    height: 70px;
+    height: 50px;
     font-size: 40px;
-    line-height: 70px;
+    line-height: 50px;
     border: none;
     border-bottom: solid;
     margin-left: 15px;
@@ -330,9 +326,9 @@ canvas {
     position: relative;
     resize: none;
     text-align: center;
-    height: 70px;
+    height: 50px;
     font-size: 40px;
-    line-height: 70px;
+    line-height: 50px;
     border: none;
     border-bottom: solid;
     border-color: #072B61;
